@@ -21,7 +21,7 @@ app.use(function (req, res, next) {
 });
 
 
-app.listen(8080,'0.0.0.0',  function () {
+app.listen(8080,'127.0.0.1',  function () {
     console.log('events application listen at 8080');
 });
 
