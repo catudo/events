@@ -43,7 +43,7 @@ module.exports = function (dbs) {
                             return next({allowed: false});
                         }
                         if (result) {
-                            return next({allowed: true});
+                            return next({allowed: true, id:user.id});
                         } else {
                             return next({allowed: false});
                         }

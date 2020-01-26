@@ -1,6 +1,6 @@
 var SERVER = 'http://localhost:8080/';
 var isLocal = true;
-var REDIRECT =  (isLocal)? '../events' :SERVER + 'events' ;
+var REDIRECT =  (isLocal)? '../front/events/index.html' :SERVER + 'events' ;
 
 $(function() {
 
@@ -34,7 +34,7 @@ function login() {
         contentType: 'application/json; charset=utf-8',
         success: function (response) {
             if(response.allowed == true){
-                window.location.href = REDIRECT;
+                window.location.href = REDIRECT+"?id="+response.id;
             }else {
                 alertify.error("Usuario o Password incorrecto");
             }

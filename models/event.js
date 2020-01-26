@@ -1,6 +1,6 @@
 
 var mongoose = require("mongoose");
-
+var Schema = mongoose.Schema;
 module.exports = function (dbs) {
 
     var eventSchema = mongoose.Schema({
@@ -22,6 +22,9 @@ module.exports = function (dbs) {
         end_date: {
             type: Date, required: true
         },
+        user: {
+            type: Schema.Types.ObjectId, ref: 'User', required: true
+        }
 
     }, {timestamps: true});
 

@@ -29,6 +29,10 @@ app.use((req, res, next) => {
 //-------------------- ROUTES --------------------------------------
 const userRoute = require("./controllers/users_controller")(dbs);
 app.use('/api', userRoute);
+
+const eventRoute = require("./controllers/events_controller")(dbs);
+app.use('/api', eventRoute);
+
 //-------------------- ---------------------------------------------
 
 app.use("/api", function (err, req, res, next) {
