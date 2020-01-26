@@ -27,13 +27,24 @@ module.exports = function (dbs) {
 
 
     var list_events = function(req, res, next) {
-        var event_promise = Event.find({}).sort({start_date: 'descending'}).exec();
+        var event_promise = Event.find({user: req.query.user}).sort({start_date: 'descending'}).exec();
         event_promise.then(function (events) {
             return next(events);
         })
     }
+
+    var delete_events = function(req, res, next) {
+        Event.findByIdAndRemove(req.query.id).then(function (err) {
+            return next({deleted:true});
+        }).catch(function (e) {
+            return next({deleted:false, error:e});
+        })
+    }
+
+
     router.post('/event/save_update_event',  save_update_event);
     router.post('/event/list_events',  list_events);
+    router.post('/event/delete_events',  delete_events);
     return router;
 
 }
