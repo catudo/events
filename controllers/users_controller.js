@@ -31,7 +31,31 @@ module.exports = function (dbs) {
          })
     }
 
+    //POST - /login
+    var login = function (req, res, next) {
+        User.findOne({email: req.body.email})
+            .then(function (user) {
+                if (!user) {
+                    return next( {error: 'user.not.exists'});
+                }
+                user.validPassword(req.body.password, function (err, result) {
+                        if (err) {
+                            return next({allowed: false});
+                        }
+                        if (result) {
+                            return next({allowed: true});
+                        } else {
+                            return next({allowed: false});
+                        }
+                    }
+                );
+            }).catch(function (err) {
+            return next({allowed: false});
+        });
+    };
+
     router.post('/users/signup',  signup);
+    router.post('/users/login',  login);
 
      return router;
 
