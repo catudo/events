@@ -132,6 +132,7 @@ function editEvent(i){
     document.getElementById("address").value=events[i].address
     document.getElementById("start_date").value=events[i].start_date
     document.getElementById("end_date").value=events[i].end_date
+    document.getElementById("event_type").value=events[i].event_type
 }
 
 

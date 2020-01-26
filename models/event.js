@@ -10,6 +10,9 @@ module.exports = function (dbs) {
         category: {
             type: String, enum: ['Conferencia', 'Seminario', 'Curso', 'Congreso'], required: true, default: 'Conferencia'
         },
+        event_type: {
+            type: String, enum: ['Presencial', 'Virtual'], required: true, default: 'Presencial'
+        },
         place: {
             type: String, required: true
         },
