@@ -1,5 +1,5 @@
 var SERVER = 'http://172.24.42.60:8080/';
-var isLocal = true;
+var isLocal = false;
 var REDIRECT =  (isLocal)? '../front/events/index.html' :SERVER + 'events' ;
 
 $(function() {
