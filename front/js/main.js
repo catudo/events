@@ -87,13 +87,17 @@ function signup() {
 
 }
 
-function getFormData(form){
+function getFormData(form, data_to_add){
     var unindexed_array = form.serializeArray();
     var indexed_array = {};
 
     $.map(unindexed_array, function(n, i){
         indexed_array[n['name']] = n['value'];
     });
+
+    if(data_to_add !=undefined) {
+        indexed_array = Object.assign({}, indexed_array, data_to_add);
+    }
 
     return indexed_array;
 }

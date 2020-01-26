@@ -28,8 +28,8 @@
         <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet">
         <!-- FORM  -->
         <div class="col-md-12">
-            <form class="form-horizontal" id="form-edit-client">
-                <input type="hidden" name="user">
+            <form class="form-horizontal" id="form-edit-event">
+                <input type="hidden" id="id" name="id">
                 <fieldset>
                     <!-- Form Name -->
                     <legend>Eventos</legend>
@@ -86,7 +86,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="btn-save"></label>
                 <div class="col-md-4" id="saveupdate">
-                    <button id="btn-save" name="btn-save" class="btn btn-success" onclick="addClient()">Guardar Evento</button>
+                    <button id="btn-save" name="btn-save" class="btn btn-success" onclick="saveEvent()">Guardar Evento</button>
                 </div>
             </div>
 
