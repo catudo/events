@@ -1,9 +1,16 @@
 // REQUIRE ALL THE LIBRARIES
 // =============================================================================
 var express = require('express');
-var bodyParser = require('body-parser');
 
 var app = express();
+var dbs = require('./dbs');
+var bodyParser = require('body-parser');
+
+app.use(bodyParser.json({limit: '16mb'}));
+app.use(bodyParser.urlencoded({extended: true}));
+
+
+
 
 app.use(function (req, res, next) {
 
@@ -21,10 +28,19 @@ app.use(function (req, res, next) {
 });
 
 
+
+//-------------------- ROUTES --------------------------------------
+const userRoute = require("./controllers/users_controller")(dbs);
+app.use('/api', userRoute);
+//-------------------- ---------------------------------------------
+
+app.use("/api", function (err, req, res, next) {
+    // send back json data
+    res.send(err);
+});
+
+
 app.listen(8080,'127.0.0.1',  function () {
     console.log('events application listen at 8080');
 });
 
-app.get('/', function (req, res) {
-    res.send('Hello World!');
-});
