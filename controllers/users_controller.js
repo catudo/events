@@ -7,12 +7,12 @@ module.exports = function (dbs) {
     var User = require('../models/user')(dbs);
     //POST - /users/signup
      var signup = function(req, res, next) {
-         var email = req.body.email;
+         var email = req.body.email_register;
          var promise = User.findOne({email: email}).exec();
          promise.then(function (user) {
              return user;
          }).then(function (user) {
-             var newUser = new User(req.body);
+             var newUser = new User({email:email,names: req.body.names,password:req.body.password_register});
              newUser.save().then(function (user_saved) {
                  return next({saved:true});
              }).catch(function (err) {

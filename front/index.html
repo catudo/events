@@ -5,9 +5,12 @@
 
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-
-
+    <link rel="stylesheet" href="lib/alertfy/themes/alertify.core.css" />
+    <link rel="stylesheet" href="lib/alertfy/themes/alertify.default.css" id="toggleCSS" />
+    <script src="lib/alertfy/alertify.min.js"></script>
     <script src="js/main.js"></script>
+
+
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
@@ -37,11 +40,11 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
-                            <form id="login-form" action="https://phpoll.com/login/process" method="post" role="form"
+                            <form id="login-form"  method="post" role="form"
                                   style="display: block;">
                                 <div class="form-group">
-                                    <input type="text" name="username" id="username" tabindex="1" class="form-control"
-                                           placeholder="Usuario" value="">
+                                    <input type="text" name="email" id="email" tabindex="1" class="form-control"
+                                           placeholder="Correo" value="">
                                 </div>
                                 <div class="form-group">
                                     <input type="password" name="password" id="password" tabindex="2"
@@ -50,32 +53,35 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-3">
-                                            <input type="submit" name="login-submit" id="login-submit" tabindex="4"
-                                                   class="form-control btn btn-login" value="Ingresar">
+                                            <input  name="login-submit" id="login-submit" tabindex="4"
+                                                   class="form-control btn btn-login" value="Ingresar" onclick="login()">
                                         </div>
                                     </div>
                                 </div>
                             </form>
-                            <form id="register-form" action="https://phpoll.com/register/process" method="post"
+                            <form id="register-form"  method="post"
                                   role="form" style="display: none;">
+
                                 <div class="form-group">
-                                    <input type="text" name="username" id="username" tabindex="1" class="form-control"
-                                           placeholder="Usuario" value="">
+                                    <input type="text" name="names" id="names" tabindex="1" class="form-control"
+                                           placeholder="Nombres" value="">
                                 </div>
+
                                 <div class="form-group">
-                                    <input type="email" name="email" id="email" tabindex="1" class="form-control"
-                                           placeholder="Email" value="">
+                                    <input type="text" name="email_register" id="email_register" tabindex="1" class="form-control"
+                                           placeholder="Correo" value="">
                                 </div>
+
                                 <div class="form-group">
-                                    <input type="password" name="password" id="password" tabindex="2"
+                                    <input type="password" name="password_register" id="password_register" tabindex="2"
                                            class="form-control" placeholder="Password">
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-3">
-                                            <input type="submit" name="register-submit" id="register-submit"
+                                            <input  name="register-submit" id="register-submit"
                                                    tabindex="4" class="form-control btn btn-register"
-                                                   value="Registrarse">
+                                                   value="Registrarse" onclick="signup()">
                                         </div>
                                     </div>
                                 </div>
